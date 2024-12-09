@@ -95,8 +95,7 @@ const yAxis = d3.axisLeft(y)
        .attr("x", (d) => x(d.year))
        .on("mouseover", (event, d) => {
           let date = new Date(d.year, d.month);
-          tooltip.transition()
-                 .style("opacity", "1")
+          tooltip.style("opacity", "1")
                  .style("position", "absolute")
                  .style("left", event.pageX + "px")
                  .style("top", event.pageY - 50 + "px")
@@ -110,8 +109,7 @@ const yAxis = d3.axisLeft(y)
           tooltip.html(d.year + " - " + d3.timeFormat("%B")(new Date(0, d.month)) + "<br/>" + d3.format(".1f")(baseTemp + d.variance) + "&#8451;" + "<br/>" + d3.format(".1f")(d.variance) + "&#8451;")
         })
        .on("mouseout", () => {
-        tooltip.transition()
-               .style("opacity", "0")
+        tooltip.style("opacity", "0")
       })
        
   const temp = data.map(d => d.variance);
